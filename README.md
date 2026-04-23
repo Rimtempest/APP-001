@@ -1,50 +1,46 @@
-# CYPARK — Smart Parking System (Static Web Version)
+# CYPARK — Smart Parking Management System
 
-A fully static, client-side parking management system — no server required. All data is stored in your browser's `localStorage`.
+## Quick Start
 
-## 🚀 Hosting on GitHub Pages
-
-1. Create a new repository on GitHub (e.g. `cypark`)
-2. Upload all files in this folder to the repository root
-3. Go to **Settings → Pages → Source → Deploy from branch → main → / (root)**
-4. Your site will be live at `https://yourusername.github.io/cypark/`
-
-## 📁 File Structure
-
+```bash
+pip install -r requirements.txt
+python run.py
 ```
-index.html        — Login page
-dashboard.html    — Main app dashboard
-js/
-  store.js        — localStorage data layer
-  qr.js           — QR code generation helpers
-  api.js          — All business logic (replaces Flask backend)
-```
+Open: http://localhost:5000
 
-## 🔑 Default Login
+## Default Admin Login
+- Username: `admin`
+- Password: `admin123`
 
-- **Username:** `admin`
-- **Password:** `admin123`
+## Features
 
-## 💾 Data Storage
+### Fixed Issues
+- Admin password bug fixed (was wrong hash in DB)
+- QR code now generates correctly with white QR on dark background
+- Ticket shown as phone screen view with QR code
+- No emojis anywhere in the UI
 
-All data is stored in your browser's **localStorage** under the `cypark_` prefix. Data persists between sessions on the same browser/device.
+### New Features
+- **Splash screen** with car logo animation on startup
+- **Loading animation** after login before dashboard
+- **Professional UI** — no emojis, clean brand design
+- **Sound effects** — click sounds, success chime, error buzz, startup melody
+- **Slot Reservation** — reserve a slot for 30 mins (P50 fee)
+- **Pay Before Exit** — pay while still parked, exit anytime
+- **Phone-style ticket** — QR code shown in a phone frame
+- **Camera QR scanner** — admin can scan customer QR via camera
+- **GPS Map** — real SM Fairview location in Google Maps embed
+- **SM Fairview floor plan** — visual parking grid matching real layout
+- **Waze + Google Maps** links for navigation
 
-> ⚠️ Note: localStorage is per-browser. Different browsers or devices will not share data. For multi-device data sharing, you would need a backend server.
+## Parking Layout
+- Floor A: Ground Level (North + South wings, 5 slots each)
+- Floor B: Level 2 (North + South wings, 5 slots each)
+- Floor C: Rooftop (North + South wings, 5 slots each)
+- Total: 30 slots
 
-## ✅ Features
-
-- Login / Register
-- Park vehicle (auto-assign or manual slot)
-- QR code ticket generation (visible on screen)
-- Reserve slots (30 min hold)
-- Process exit + fee calculation
-- Pay before exit
-- QR scanner (camera or manual entry)
-- SM Fairview floor plan map
-- Sessions log with search
-- Admin panel (settings, user management, override)
-- Revenue charts & occupancy analytics
-- Notifications system
-- Emergency mode toggle
-- Senior / PWD discounts
-- Overstay penalty calculation
+## Rates
+- Hourly: P40/hr
+- Reservation fee: P50 (30-min hold)
+- Overstay penalty: P20/hr
+- Senior/PWD discount: 20%
